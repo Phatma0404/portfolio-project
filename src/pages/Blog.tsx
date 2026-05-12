@@ -105,18 +105,21 @@ export default function Blog() {
     <div className="max-w-6xl mx-auto px-6 py-16">
       {/* Header */}
       <div className="mb-14">
-        <p className="text-xs font-semibold text-[#E8472A] uppercase tracking-widest mb-3">
-          Blog
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#E8472A] mb-4">
+          / blog
         </p>
-        <h1 className="text-4xl font-bold text-white mb-3">Writing</h1>
-        <p className="text-zinc-400 max-w-2xl">
-          Notes on frontend craft, accessibility, and the tools I use day to
-          day. Posts are pulled live from my{" "}
+        <h1 className="text-5xl md:text-6xl font-light text-white leading-[0.95] mb-5">
+          Writing &{" "}
+          <em className="italic font-normal text-[#E8472A]">notes</em>.
+        </h1>
+        <p className="text-zinc-400 max-w-2xl leading-relaxed">
+          Frontend craft, accessibility, and the tools I use day to day. Posts
+          are pulled live from my{" "}
           <a
             href={`https://medium.com/@${MEDIUM_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#E8472A] hover:underline"
+            className="text-[#E8472A] hover:underline underline-offset-4"
           >
             Medium
           </a>

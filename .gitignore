@@ -11,3 +11,9 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local design backups (not for shared repo)
+.design-backup/
+
+# Claude Code local settings (not for shared repo)
+.claude/settings.local.json

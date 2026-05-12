@@ -7,15 +7,15 @@ export default function Navbar() {
   const close = () => setOpen(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#111111] border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0e0e10]/80 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3" onClick={close}>
           <div className="w-8 h-8 rounded-md bg-[#E8472A] flex items-center justify-center text-white font-bold text-sm">
             P
           </div>
-          <span className="text-white font-semibold text-sm">
-            Phatma Kiazumova
+          <span className="font-display text-white text-lg italic font-normal tracking-tight">
+            Phatma.
           </span>
         </Link>
 
@@ -23,37 +23,37 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link
             to="/#about"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
           >
             About
           </Link>
           <Link
             to="/#projects"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
           >
             Projects
           </Link>
           <Link
             to="/#skills"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
           >
             Skills
           </Link>
           <Link
             to="/resume"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
           >
             Resume
           </Link>
           <Link
             to="/blog"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
           >
             Blog
           </Link>
           <Link
             to="/#contact"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
           >
             Contact
           </Link>
@@ -110,47 +110,47 @@ export default function Navbar() {
 
       {/* Mobile menu panel */}
       {open && (
-        <div className="md:hidden relative z-50 border-t border-white/5 bg-[#111111]">
+        <div className="md:hidden relative z-50 border-t border-white/5 bg-[#0e0e10]/95 backdrop-blur-xl">
           <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
             <Link
               to="/#about"
               onClick={close}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
             >
               About
             </Link>
             <Link
               to="/#projects"
               onClick={close}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
             >
               Projects
             </Link>
             <Link
               to="/#skills"
               onClick={close}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
             >
               Skills
             </Link>
             <Link
               to="/resume"
               onClick={close}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
             >
               Resume
             </Link>
             <Link
               to="/blog"
               onClick={close}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
             >
               Blog
             </Link>
             <Link
               to="/#contact"
               onClick={close}
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
             >
               Contact
             </Link>

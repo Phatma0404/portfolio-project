@@ -23,7 +23,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-md bg-[#E8472A] flex items-center justify-center text-white font-bold text-sm">
                 P
               </div>
-              <span className="text-white font-semibold text-base  tracking-tight">
+              <span className="font-display text-white text-xl font-normal italic tracking-tight">
                 Phatma.
               </span>
             </Link>
@@ -39,7 +39,7 @@ export default function Footer() {
               <Link
                 key={n.label}
                 to={n.href}
-                className="text-xs font-semibold uppercase tracking-widest text-zinc-300 hover:text-white transition-colors"
+                className="font-mono text-xs uppercase tracking-widest text-zinc-300 hover:text-[#E8472A] transition-colors"
               >
                 {n.label}
               </Link>
@@ -52,11 +52,11 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <p className="text-xs text-zinc-500">
-            © {year} Phatma Kiazumova. All rights reserved.
+          <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+            © {year} · Phatma Kiazumova · All rights reserved
           </p>
-          <p className="text-xs text-zinc-500">
-            Built with React & Tailwind CSS
+          <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+            Built with React · Tailwind · Vite
           </p>
         </div>
       </footer>
