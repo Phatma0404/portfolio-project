@@ -69,6 +69,28 @@
   }
 }
 
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-fade-up {
   opacity: 0;
   animation: fade-up 0.7s ease-out forwards;
@@ -86,6 +108,16 @@
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+.animate-slide-down {
+  opacity: 0;
+  animation: slide-down 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-left {
+  opacity: 0;
+  animation: slide-in-left 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Subtle noise texture overlay */
@@ -121,6 +153,8 @@
   .animate-fade-in,
   .animate-float-in,
   .animate-marquee,
+  .animate-slide-down,
+  .animate-slide-in-left,
   .shine-on-hover::after {
     animation: none;
     opacity: 1;

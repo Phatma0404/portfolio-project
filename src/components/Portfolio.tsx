@@ -10,23 +10,41 @@ type Project = {
   live: string;
   github: string;
   accent: string;
+  cover?: string;
+  iconSvg?: string;
+  wordmarkSvg?: string;
 };
 
 const projects: Project[] = [
   {
     id: "01",
-    title: "Digital Permits System",
-    year: "2024",
-    role: "Frontend · React · Redux Toolkit",
+    title: "SmartAbituriyent",
+    year: "2025",
+    role: "Frontend · Education Platform",
     description:
-      "UI for the Ministry of Energy's unified electronic information system. Built complex form flows, table interactions, and permissioned views used by government inspectors in production.",
-    stack: ["React", "Redux Toolkit", "Tailwind CSS", "REST API"],
-    live: "#",
+      "Mobile-first platform helping Azerbaijani high-school graduates pick a university specialization based on their entrance exam results. Turns dense academic catalogs into a guided, friendly selection flow.",
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    live: "https://smartabitur.az/",
     github: "#",
     accent: "#E8472A",
+    iconSvg: "/images/smartabitur-icon.svg",
+    wordmarkSvg: "/images/smartabitur-wordmark.svg",
   },
   {
     id: "02",
+    title: "ServiceSecurity",
+    year: "2025",
+    role: "Frontend · React · SPA",
+    description:
+      "Marketing site for a security camera solutions company in Azerbaijan. Built as a responsive single-page app with smooth section navigation, animated stats, and a polished service catalog.",
+    stack: ["React", "Vite", "Tailwind CSS", "React Router"],
+    live: "https://securityca.netlify.app/",
+    github: "https://github.com/Phatma0404/security-camera",
+    accent: "#1e3a8a",
+    cover: "/images/securityca-cover.png",
+  },
+  {
+    id: "03",
     title: "EduRobot.AI",
     year: "2024",
     role: "Frontend · Components",
@@ -38,7 +56,7 @@ const projects: Project[] = [
     accent: "#7B61FF",
   },
   {
-    id: "03",
+    id: "04",
     title: "Food Supply Map",
     year: "2024",
     role: "Frontend · UI Implementation",
@@ -75,12 +93,16 @@ export default function Projects() {
                 / projects
               </p>
               <h2 className="text-5xl md:text-6xl font-light text-white leading-[0.95]">
-                Selected <em className="italic font-normal text-[#E8472A]">work</em>.
+                Selected{" "}
+                <em className="italic font-normal text-[#E8472A]">work</em>.
               </h2>
             </div>
             <p className="text-sm text-zinc-500 max-w-xs">
               A few production projects I've shipped. More on{" "}
-              <a href="#" className="text-zinc-300 hover:text-white underline underline-offset-4">
+              <a
+                href="#"
+                className="text-zinc-300 hover:text-white underline underline-offset-4"
+              >
                 GitHub
               </a>
               .
@@ -92,6 +114,8 @@ export default function Projects() {
         <Reveal>
           <a
             href={featured.live}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group block relative bg-white/[0.03] border border-white/10 rounded-3xl p-8 md:p-10 mb-6 overflow-hidden shine-on-hover transition-all duration-500 hover:border-white/20 hover:bg-white/[0.05]"
           >
             {/* Background glow following project accent */}
@@ -101,15 +125,53 @@ export default function Projects() {
             />
 
             <div className="relative grid md:grid-cols-12 gap-8 items-center">
-              {/* Preview placeholder — big */}
+              {/* Preview — composed logo, image, or fallback number */}
               <div className="md:col-span-7 aspect-[16/10] rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/5 flex items-center justify-center overflow-hidden relative">
-                <span
-                  className="font-display text-[8rem] md:text-[10rem] leading-none font-light tracking-tighter opacity-20 transition-transform duration-700 group-hover:scale-110"
-                  style={{ color: featured.accent }}
-                >
-                  {featured.id}
-                </span>
-                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                {featured.iconSvg && featured.wordmarkSvg ? (
+                  <>
+                    <div className="absolute inset-0 bg-white flex flex-col items-center justify-center gap-6 sm:gap-8 px-8 py-10 transition-transform duration-700 group-hover:scale-[1.03]">
+                      <img
+                        src={featured.iconSvg}
+                        alt=""
+                        loading="lazy"
+                        className="h-28 sm:h-36 md:h-40 w-auto"
+                      />
+                      <img
+                        src={featured.wordmarkSvg}
+                        alt={featured.title}
+                        loading="lazy"
+                        className="h-6 sm:h-8 md:h-10 w-auto"
+                      />
+                    </div>
+                    {/* Soft brand-tinted vignette so the white block feels intentional */}
+                    <div
+                      className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-20 pointer-events-none mix-blend-multiply"
+                      style={{ background: featured.accent }}
+                    />
+                  </>
+                ) : featured.cover ? (
+                  <>
+                    <img
+                      src={featured.cover}
+                      alt={featured.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/30 to-transparent pointer-events-none" />
+                    <div
+                      className="absolute top-0 right-0 w-24 h-24 opacity-20 blur-2xl pointer-events-none"
+                      style={{ background: featured.accent }}
+                    />
+                  </>
+                ) : (
+                  <span
+                    className="font-display text-[8rem] md:text-[10rem] leading-none font-light tracking-tighter opacity-20 transition-transform duration-700 group-hover:scale-110"
+                    style={{ color: featured.accent }}
+                  >
+                    {featured.id}
+                  </span>
+                )}
+                <span className="absolute top-4 left-4 z-10 font-mono text-[10px] uppercase tracking-widest text-white/90 backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
                   ▲ featured
                 </span>
               </div>
@@ -157,12 +219,14 @@ export default function Projects() {
           </a>
         </Reveal>
 
-        {/* Two smaller cards */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Smaller cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {rest.map((p, i) => (
             <Reveal key={p.id} delay={150 + i * 120}>
               <a
                 href={p.live}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block relative bg-white/[0.03] border border-white/10 rounded-3xl p-7 overflow-hidden shine-on-hover transition-all duration-500 hover:border-white/20 hover:bg-white/[0.05] h-full"
               >
                 <div
@@ -170,6 +234,16 @@ export default function Projects() {
                   style={{ background: p.accent }}
                 />
                 <div className="relative">
+                  {p.cover && (
+                    <div className="aspect-[16/10] rounded-xl bg-white border border-white/5 overflow-hidden mb-5 -mx-1">
+                      <img
+                        src={p.cover}
+                        alt={p.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center justify-between mb-5 font-mono text-xs uppercase tracking-widest text-zinc-500">
                     <span>{p.id}</span>
                     <span>{p.year}</span>

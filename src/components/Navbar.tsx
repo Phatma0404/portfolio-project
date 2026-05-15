@@ -65,38 +65,27 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-zinc-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+          className="md:hidden relative inline-flex items-center justify-center w-10 h-10 rounded-md text-zinc-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
         >
-          {open ? (
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          ) : (
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          )}
+          <span className="sr-only">Toggle menu</span>
+          <span
+            aria-hidden="true"
+            className={`absolute h-px w-5 bg-current transition-all duration-300 ease-out ${
+              open ? "rotate-45" : "-translate-y-1.5"
+            }`}
+          />
+          <span
+            aria-hidden="true"
+            className={`absolute h-px w-5 bg-current transition-all duration-200 ease-out ${
+              open ? "opacity-0 scale-x-0" : "opacity-100"
+            }`}
+          />
+          <span
+            aria-hidden="true"
+            className={`absolute h-px w-5 bg-current transition-all duration-300 ease-out ${
+              open ? "-rotate-45" : "translate-y-1.5"
+            }`}
+          />
         </button>
       </div>
 
@@ -104,56 +93,40 @@ export default function Navbar() {
       {open && (
         <div
           onClick={close}
-          className="md:hidden fixed inset-0 top-16 bg-black/40 z-40"
+          className="md:hidden fixed inset-0 top-16 bg-black/50 z-40 animate-fade-in"
         />
       )}
 
       {/* Mobile menu panel */}
       {open && (
-        <div className="md:hidden relative z-50 border-t border-white/5 bg-[#0e0e10]/95 backdrop-blur-xl">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
-            <Link
-              to="/#about"
-              onClick={close}
-              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="/#projects"
-              onClick={close}
-              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-            >
-              Projects
-            </Link>
-            <Link
-              to="/#skills"
-              onClick={close}
-              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-            >
-              Skills
-            </Link>
-            <Link
-              to="/resume"
-              onClick={close}
-              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-            >
-              Resume
-            </Link>
-            <Link
-              to="/blog"
-              onClick={close}
-              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              to="/#contact"
-              onClick={close}
-              className="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
-            >
-              Contact
-            </Link>
+        <div className="md:hidden relative z-50 border-t border-white/5 bg-[#0e0e10]/95 backdrop-blur-xl animate-slide-down">
+          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-1">
+            {[
+              { to: "/#about", label: "About", num: "01" },
+              { to: "/#projects", label: "Projects", num: "02" },
+              { to: "/#skills", label: "Skills", num: "03" },
+              { to: "/resume", label: "Resume", num: "04" },
+              { to: "/blog", label: "Blog", num: "05" },
+              { to: "/#contact", label: "Contact", num: "06" },
+            ].map((item, i) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                onClick={close}
+                style={{ animationDelay: `${80 + i * 50}ms` }}
+                className="animate-slide-in-left group flex items-baseline justify-between py-3 border-b border-white/[0.04] last:border-0 font-mono text-sm uppercase tracking-widest text-zinc-300 hover:text-[#E8472A] transition-colors"
+              >
+                <span className="flex items-baseline gap-3">
+                  {/* <span className="text-[10px] text-zinc-600 group-hover:text-[#E8472A] transition-colors">
+                    /{item.num}
+                  </span> */}
+                  {item.label}
+                </span>
+                {/* <span className="text-zinc-600 group-hover:text-[#E8472A] group-hover:translate-x-1 transition-all">
+                  →
+                </span> */}
+              </Link>
+            ))}
           </div>
         </div>
       )}
