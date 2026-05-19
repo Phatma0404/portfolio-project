@@ -43,30 +43,43 @@ const projects: Project[] = [
     accent: "#1e3a8a",
     cover: "/images/securityca-cover.png",
   },
-  {
-    id: "03",
-    title: "EduRobot.AI",
-    year: "2024",
-    role: "Frontend · Components",
-    description:
-      "Education & automation platform — reusable components and state-managed views.",
-    stack: ["React", "Context API", "Tailwind"],
-    live: "#",
-    github: "#",
-    accent: "#7B61FF",
-  },
+  // {
+  //   id: "03",
+  //   title: "EduRobot.AI",
+  //   year: "2024",
+  //   role: "Frontend · Components",
+  //   description:
+  //     "Education & automation platform — reusable components and state-managed views.",
+  //   stack: ["React", "Context API", "Tailwind"],
+  //   live: "#",
+  //   github: "#",
+  //   accent: "#7B61FF",
+  // },
   {
     id: "04",
-    title: "Food Supply Map",
-    year: "2024",
-    role: "Frontend · UI Implementation",
+    title: "PhaHome",
+    year: "2025",
+    role: "Frontend · React · SPA",
     description:
-      "Mapping system for the Construction-Supply Union under Ministry of Economy.",
-    stack: ["React", "Tailwind", "React-Bootstrap"],
-    live: "#",
-    github: "#",
-    accent: "#FFB547",
+      "Modern home-related web application built and deployed on Netlify. Clean, responsive interface with a focus on usability and smooth user experience.",
+    stack: ["React", "Vite", "Tailwind CSS"],
+    live: "https://phahome.netlify.app/",
+    github: "https://github.com/Phatma0404/phaHome",
+    accent: "#14B8A6",
+    cover: "/images/phahome-cover.png",
   },
+  // {
+  //   id: "05",
+  //   title: "Food Supply Map",
+  //   year: "2024",
+  //   role: "Frontend · UI Implementation",
+  //   description:
+  //     "Mapping system for the Construction-Supply Union under Ministry of Economy.",
+  //   stack: ["React", "Tailwind", "React-Bootstrap"],
+  //   live: "#",
+  //   github: "#",
+  //   accent: "#FFB547",
+  // },
 ];
 
 const [featured, ...rest] = projects;
