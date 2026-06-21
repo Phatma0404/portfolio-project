@@ -62,11 +62,24 @@ const projects: Project[] = [
     role: "Frontend · React · SPA",
     description:
       "Modern home-related web application built and deployed on Netlify. Clean, responsive interface with a focus on usability and smooth user experience.",
-    stack: ["React", "Vite", "Tailwind CSS"],
+    stack: ["React", "Vite", "TypeScript", "Tailwind CSS"],
     live: "https://phahome.netlify.app/",
     github: "https://github.com/Phatma0404/phaHome",
     accent: "#14B8A6",
     cover: "/images/phahome-cover.png",
+  },
+  {
+    id: "05",
+    title: "NewYorkUSA",
+    year: "2026",
+    role: "Frontend · React · SPA",
+    description:
+      "A vibrant New York / USA-themed web experience crafted as a single-page application. Polished visuals, smooth navigation, and a layout tuned to capture the energy of the city.",
+    stack: ["React", "Vite", "Tailwind CSS"],
+    live: "https://newyorkusa.netlify.app/",
+    github: "#",
+    accent: "#DC2626",
+    cover: "/images/usatravel-cover.png",
   },
   // {
   //   id: "05",
